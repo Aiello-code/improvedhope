@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trump Mentions Tracker</title>
+    <style>
+        body { text-align: center; background-color: #f0f0f0; }
+        h1 { color: red; font-size: 36px; }
+        .stats-table { margin: 20px auto; width: 80%; }
+        .stats-table td { padding: 10px; }
+        .highlight { font-size: 20px; color: green; }
+    </style>
+</head>
+<body>
+
+    <h1>Trump Mentions on the SMH Front Page</h1>
+    <p><strong>{{ latest_mentions }} times right now!</strong></p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Donald_Trump_official_portrait_2017.jpg/1200px-Donald_Trump_official_portrait_2017.jpg" alt="Trump Image" width="300" />
+    
+    <table class="stats-table">
+        <tr>
+            <td><strong>Highest Mentions in Last 24 Hours:</strong> {{ highest_24h }}</td>
+            <td><strong>Lowest Mentions in Last 24 Hours:</strong> {{ lowest_24h }}</td>
+        </tr>
+        <tr>
+            <td><strong>Highest Mentions in Last 7 Days:</strong> {{ highest_7d }}</td>
+            <td><strong>Lowest Mentions in Last 7 Days:</strong> {{ lowest_7d }}</td>
+        </tr>
+        <tr>
+            <td><strong>Highest Recorded Mentions Ever:</strong> {{ all_time_high }}</td>
+            <td><strong>Lowest Recorded Mentions Ever:</strong> {{ all_time_low }}</td>
+        </tr>
+    </table>
+
+    {% if latest_mentions == all_time_high %}
+    <p class="highlight">This is the highest recorded number of mentions EVER!</p>
+    {% endif %}
+</body>
+</html>
